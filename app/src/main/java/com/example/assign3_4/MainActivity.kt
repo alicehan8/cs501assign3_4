@@ -46,28 +46,34 @@ fun ScaffoldExample(){
     val coroutineScope = rememberCoroutineScope()
 
     Scaffold(
+        // top bar with the app title
         topBar = {
             TopAppBar(
                 title = { Text("Scaffold Example", style = MaterialTheme.typography.titleLarge) }
             )
         },
+        // bottom bar with navigation buttons
         bottomBar = {
             BottomAppBar(
                 containerColor = MaterialTheme.colorScheme.primaryContainer,
                 contentColor = MaterialTheme.colorScheme.primary,
                 modifier = Modifier.fillMaxWidth()
             ){
+                // home button
                 Button(onClick = { /*TODO*/ }, modifier = Modifier.weight(1f).padding(10.dp)){
                     Text("Home")
                 }
+                // settings button
                 Button(onClick = { /*TODO*/ }, modifier = Modifier.weight(1f).padding(10.dp)){
                     Text("Settings")
                 }
+                //profile button
                 Button(onClick = { /*TODO*/ }, modifier = Modifier.weight(1f).padding(10.dp)){
                     Text("Profile")
                 }
             }
         },
+        //floating action button that triggers snackbar message
         floatingActionButton = {
             FloatingActionButton(
                 onClick = {
@@ -79,11 +85,13 @@ fun ScaffoldExample(){
             }
         },
         floatingActionButtonPosition = FabPosition.Center,
+        //snackbar host that will display the message
         snackbarHost = {
             SnackbarHost(snackbarHostState)
         },
+        //content for scaffold that uses inner padding to avoid overlap
         content = { innerPadding ->
-            Text("Hello Scaffold!", modifier = Modifier.padding(innerPadding))
+            Text("Scaffold content", modifier = Modifier.padding(innerPadding))
         }
     )
 }
